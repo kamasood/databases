@@ -8,8 +8,8 @@ const API_URL = 'http://127.0.0.1:3000/classes';
 
 describe('Persistent Node Chat Server', () => {
   const dbConnection = mysql.createConnection({
-    user: 'student',
-    password: 'student',
+    user: 'root',
+    password: '',
     database: 'chat',
   });
 
@@ -65,7 +65,7 @@ describe('Persistent Node Chat Server', () => {
 
   it('Should output all messages from the DB', (done) => {
     // Let's insert a message into the db
-    const queryString = '';
+    const queryString = 'INSERT INTO messages VALUES (null, "testname", "testmessage", "testroom")';
     const queryArgs = [];
     /* TODO: The exact query string and query args to use here
      * depend on the schema you design, so I'll leave them up to you. */
@@ -78,8 +78,8 @@ describe('Persistent Node Chat Server', () => {
       axios.get(`${API_URL}/messages`)
         .then((response) => {
           const messageLog = response.data;
-          expect(messageLog[0].text).toEqual(message);
-          expect(messageLog[0].roomname).toEqual(roomname);
+          expect(messageLog[1].text).toEqual('testmessage'); // changed message to 'testmessage'
+          expect(messageLog[1].roomname).toEqual('testroom'); // changed roomname to 'testroom'
           done();
         })
         .catch((err) => {
