@@ -7,7 +7,7 @@ module.exports = {
       if (err) {
         res.send(err);
       } else {
-        res.send(result);
+        res.json(results);
       }
     });
   },
@@ -18,7 +18,7 @@ module.exports = {
       if (err) {
         res.send(err);
       } else {
-        res.send(result);
+        res.send(results);
       }
     });
 

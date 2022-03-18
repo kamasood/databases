@@ -21,7 +21,7 @@ module.exports = {
   create: function (body, callback) {
 
     db.connection.query(
-      'INSERT INTO messages VALUES (null, "' + body.username + '", "' + body.message + '", "' + body.roomname + '")',
+      'INSERT INTO messages VALUES (null, "' + body.username + '", "' + body.text + '", "' + body.roomname + '")',
       function(err, results, fields) {
         if (err) {
           console.log(err);

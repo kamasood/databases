@@ -4,7 +4,7 @@ module.exports = {
   get: function (req, res) {
 
     models.messages.getAll((err, results) => {
-      res.send(results);
+      res.json(results);
     });
 
   }, // a function which handles a get request for all messages
@@ -14,7 +14,7 @@ module.exports = {
     // res.send('posted message');
 
     models.messages.create(req.body, (err, results) => {
-      res.send(results);
+      res.json(results);
     });
 
   } // a function which handles posting a message to the database

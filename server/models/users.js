@@ -26,7 +26,7 @@ module.exports = {
         if (err) {
           console.log(err);
         } else {
-          callback(username);
+          callback(results);
           console.log('User posted sucessfully');
         }
       }
